@@ -1,0 +1,53 @@
+# Ignore Visual Studio user-specific files
+.vs/
+*.user
+*.suo
+
+# Ignore build results
+bin/
+obj/
+out/
+
+# Ignore temporary files
+*.log
+*.tmp
+*.cache
+
+# Ignore Rider IDE files
+.idea/
+
+# Ignore ASP.NET Scaffolding
+ScaffoldingReadMe.txt
+
+# Ignore NuGet packages
+*.nupkg
+*.snupkg
+packages/
+*.nuspec
+
+# Ignore .NET Core tooling
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# Ignore Publish folder
+publish/
+App_Data/
+
+# Ignore test results
+TestResults/
+*.trx
+*.coverage
+*.coveragexml
+
+# Ignore VS Code settings
+.vscode/
+
+# Ignore user secrets
+secrets.json
+
+# Others
+*.vsidx
+
+
+
