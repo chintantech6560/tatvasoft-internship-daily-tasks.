@@ -10,4 +10,8 @@
     <ProjectReference Include="..\Mission.Entity\Mission.Entity.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="9.0.6" />
+  </ItemGroup>
+
 </Project>
