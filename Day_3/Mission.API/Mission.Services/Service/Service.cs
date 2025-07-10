@@ -1,14 +1,22 @@
-﻿using Mission.Entity.ViewModel;
-using Mission.Entity.ViewModel.Login;
+﻿using System.Threading.Tasks;
 using Mission.Repositories.iRepository;
 using Mission.Services.IService;
-using System.Threading.Tasks;
+using Mission.Entity.ViewModel;
+using Mission.Entity.ViewModel.Login;
 
 namespace Mission.Services.Service
 {
-    public class Service(iUserRepository userRepository) : iService
+    public class Service : iService
     {
-        private readonly iUserRepository _userRepository = userRepository;
+        private readonly iUserRepository _userRepository;
+        private readonly JWTService _jWTService;
+
+        public Service(iUserRepository userRepository, JWTService jWTService)
+        {
+            _userRepository = userRepository;
+            _jWTService = jWTService;
+        }
+
         public async Task<ResponseResult> LogiUser(UserLoginRequestModel model)
         {
             var (response, message) = await _userRepository.LogiUser(model);
@@ -25,7 +33,7 @@ namespace Mission.Services.Service
             }
             else
             {
-
+                result.Data = _jWTService.GenerateJwtToken(response);
                 result.Result = ResponseStatus.Success;
             }
 
